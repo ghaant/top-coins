@@ -16,6 +16,8 @@ module Coinmarketcap
       client_response = @client.currencies_quotes(ids_string, currency)
       JSON.parse(client_response.body)['data'].map { |_key, value| value }
           .map { |coin| coin.slice('id', 'name', 'symbol', 'quote') }
+          .each { |coin| coin['price'] = coin.delete('quote')[currency]['price'] }
+
     end
   end
 end
