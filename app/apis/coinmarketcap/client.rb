@@ -24,11 +24,12 @@ module Coinmarketcap
       get_request(endpoint, params)
     end
 
-    def currencies_quotes(ids_string)
+    def currencies_quotes(ids_string, currency)
       endpoint = COMMON_PATH + QUOTES_PATH
 
       params = {
-        'id': ids_string
+        'id': ids_string,
+        'convert': currency
       }
 
       get_request(endpoint, params)
