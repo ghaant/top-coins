@@ -10,7 +10,6 @@ module Coinmarketcap
         faraday.request :url_encoded
         faraday.adapter Faraday.default_adapter
         faraday.headers['Accept'] = 'application/json'
-        faraday.headers['Accept-Encoding'] = 'deflate, gzip'
       end
     end
   end
