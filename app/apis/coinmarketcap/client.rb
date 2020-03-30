@@ -14,17 +14,17 @@ module Coinmarketcap
       }
     end
 
-    def currencies_ids(currencies_string)
+    def coins_ids(coins_string)
       endpoint = COMMON_PATH + IDS_PATH
 
       params = {
-        'symbol': currencies_string
+        'symbol': coins_string
       }
 
       get_request(endpoint, params)
     end
 
-    def currencies_quotes(ids_string, currency)
+    def coins_quotes(ids_string, currency)
       endpoint = COMMON_PATH + QUOTES_PATH
 
       params = {
