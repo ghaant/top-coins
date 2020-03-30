@@ -5,6 +5,7 @@ require './lib/coinmarketcap/connection.rb'
 module Coinmarketcap
   class Client
     COMMON_PATH = 'v1/cryptocurrency/'
+    IDS_PATH = 'map'
     QUOTES_PATH = 'quotes/latest'
     VALID_COINS_PATH = 'listings/latest'
     MAX_LIMIT = 5000
@@ -13,6 +14,16 @@ module Coinmarketcap
       @header = {
         'X-CMC_PRO_API_KEY' => api_key
       }
+    end
+
+    def coins_ids(coins_string)
+      endpoint = COMMON_PATH + IDS_PATH
+
+      params = {
+        'symbol': coins_string
+      }
+
+      get_request(endpoint, params)
     end
 
     def coins_quotes(ids_string, currency)
