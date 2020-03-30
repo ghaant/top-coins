@@ -1,24 +1,14 @@
-# README
+# TOP COINS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an API intended for listing top N cryptocurrencies with the biggest direct volumes in the provided currency along with their prices in the same currency. As the sources of data are used:
+* cryptocompare API - for getting the list of currencies with max direct volumes,
+* coinmarketcap API - for getting prices of the currencies from the list above.
 
-Things you may want to cover:
+Coinmarketcap API requires a personal API key, so before running the application make sure you get this key from their webpage.
 
-* Ruby version
+The required parameters of the application are follows:
+1. cmc_api_key - Coinmarketcap API key,
+2. currency - a currency of volume and price of cryptocurrencies,
+3. limit - the number of listed cryptocurrencies (max = 1000).
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Calling template: <host_address>?currency=USD&limit=10&cmc_api_key=<your_personal_api_key>
