@@ -7,6 +7,8 @@ module Cryptocompare
     ENDPOINT = 'data/top/volumes'
 
     def top_list(volume_currency, length)
+      length = length.to_i - 1 # Cryptocompare API returns 1 recorc more than requested.
+
       params = {
         tsym: volume_currency,
         limit: length
