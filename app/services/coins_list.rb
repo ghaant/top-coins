@@ -16,6 +16,7 @@ class CoinsList
 
     prices_array = coins_data.coins_prices(match_coins_symbols_string, currency)
                              .sort_by { |coin| coin['symbol'] }
+                             .each { |coin| coin['coinmarketcap_id'] = coin.delete('id') }
 
     ranks_array = top_coins_array
                   .select { |coin| match_coins_symbols.include?(coin['SYMBOL']) }
